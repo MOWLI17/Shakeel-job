@@ -1,0 +1,33 @@
+{
+  "short_name": "Shakeel Arafath",
+  "name": "Shakeel Arafath - Digital Marketing Expert",
+  "description": "Professional Digital Marketer specializing in social media marketing, Meta Ads, and content creation",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#C9F31D",
+  "background_color": "#131313",
+  "orientation": "portrait-primary",
+  "categories": [
+    "business",
+    "marketing",
+    "portfolio"
+  ],
+  "lang": "en-US"
+}
