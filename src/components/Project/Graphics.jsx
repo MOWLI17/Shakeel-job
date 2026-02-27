@@ -51,18 +51,6 @@ const mediaItems = [
   },
 ]
 
-// Asymmetric bento sizes for visual rhythm
-const getBentoClass = (index, total) => {
-  // If last card would be orphaned (odd total), make it full-width
-  if (index === total - 1 && total % 2 !== 0) return 'bento-full'
-  switch (index) {
-    case 0: return 'bento-large'     // 2×2 hero card
-    case 3: return 'bento-wide'      // 2×1 wide landscape
-    case 4: return 'bento-tall'      // 1×2 portrait
-    case 6: return 'bento-wide'      // 2×1 wide
-    default: return 'bento-standard' // 1×1 square
-  }
-}
 
 const Graphics = () => {
   const navigate = useNavigate()
@@ -101,7 +89,7 @@ const Graphics = () => {
           {mediaItems.map((item, index) => (
             <div
               key={index}
-              className={`bento-card ${getBentoClass(index, mediaItems.length)}`}
+              className="bento-card bento-standard"
             >
               {/* Video iframe */}
               <div className="video-wrapper">
