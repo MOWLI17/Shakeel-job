@@ -1,0 +1,447 @@
+/* ============================================================
+   Graphics.css — Premium Bento Grid Video Showcase
+   Theme: Dark Ink (#1A1610) + Gold (#B8962E)
+   ============================================================ */
+
+/* ─── Section Shell ─── */
+.graphics-section {
+  position: relative;
+  min-height: 100vh;
+  background: var(--ink);
+  padding: 100px 5% 120px;
+  overflow: hidden;
+  color: var(--cream);
+}
+
+/* ─── Decorative Ambient Orbs ─── */
+.graphics-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.graphics-ambient::before {
+  content: '';
+  position: absolute;
+  top: -15%;
+  right: -8%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(184, 150, 46, 0.18) 0%, transparent 65%);
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: orbFloat 8s ease-in-out infinite alternate;
+}
+
+.graphics-ambient::after {
+  content: '';
+  position: absolute;
+  bottom: 10%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(184, 150, 46, 0.10) 0%, transparent 65%);
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: orbFloat 10s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes orbFloat {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    transform: translate(20px, 30px) scale(1.05);
+  }
+}
+
+/* ─── Container ─── */
+.graphics-container {
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+/* ─── Back Button ─── */
+.graphics-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--cream);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: var(--sans, sans-serif);
+  letter-spacing: 0.5px;
+  margin-bottom: 70px;
+  padding: 13px 26px;
+  border-radius: 100px;
+  backdrop-filter: blur(12px);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.graphics-back-btn:hover {
+  background: rgba(184, 150, 46, 0.12);
+  border-color: rgba(184, 150, 46, 0.45);
+  color: var(--gold-lt);
+  transform: translateX(-6px);
+  box-shadow: 0 0 20px rgba(184, 150, 46, 0.15);
+}
+
+/* ─── Header Section ─── */
+.graphics-header {
+  text-align: center;
+  margin-bottom: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.graphics-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--sans, sans-serif);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 22px;
+}
+
+.graphics-eyebrow::before,
+.graphics-eyebrow::after {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+
+.graphics-eyebrow::after {
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+.graphics-title {
+  font-family: var(--serif, serif);
+  font-size: clamp(48px, 6.5vw, 80px);
+  line-height: 1.05;
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 28px;
+  letter-spacing: -0.5px;
+}
+
+.graphics-title i {
+  color: var(--gold);
+  font-style: italic;
+  position: relative;
+}
+
+.graphics-title i::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-dk), var(--gold-lt));
+  border-radius: 2px;
+  opacity: 0.5;
+}
+
+.graphics-subtitle {
+  font-family: var(--sans, sans-serif);
+  font-size: 17px;
+  color: rgba(245, 240, 232, 0.55);
+  max-width: 580px;
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+/* ─── Bento Grid ─── */
+.video-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(280px, auto);
+  gap: 16px;
+  margin-bottom: 80px;
+  align-items: stretch;
+}
+
+/* ─── Bento Card ─── */
+.bento-card {
+  position: relative;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  background: rgba(46, 40, 32, 0.5);
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition:
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.bento-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(135deg,
+      rgba(184, 150, 46, 0.06) 0%,
+      transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.bento-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  border-color: rgba(184, 150, 46, 0.35);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(184, 150, 46, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.bento-card:hover::before {
+  opacity: 1;
+}
+
+/* ─── Span Classes ─── */
+.bento-standard {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.bento-wide {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.bento-tall {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.bento-large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* Full-width card — used for last orphaned card on odd totals */
+.bento-full {
+  grid-column: 1 / -1;
+  grid-row: span 1;
+}
+
+
+/* ─── Video Wrapper ─── */
+.video-wrapper {
+  width: 100%;
+  height: 100%;
+  flex-grow: 1;
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+.bento-card iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 13px;
+  background-color: #0a0906;
+  display: block;
+  border: none;
+}
+
+/* ─── Card Number Badge (index indicator) ─── */
+.bento-number {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(184, 150, 46, 0.15);
+  border: 1px solid rgba(184, 150, 46, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--sans, sans-serif);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold-lt);
+  opacity: 0;
+  transform: scale(0.7);
+  transition: all 0.3s ease 0.1s;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.bento-card:hover .bento-number {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ─── Title Pill ─── */
+.bento-title {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(10, 9, 6, 0.75);
+  padding: 10px 18px;
+  border-radius: 100px;
+  font-family: var(--sans, sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: var(--cream);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  backdrop-filter: blur(10px);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.bento-title-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+  box-shadow: 0 0 6px rgba(184, 150, 46, 0.8);
+}
+
+.bento-card:hover .bento-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Bottom Separator Line ─── */
+.graphics-divider {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto;
+  border-radius: 2px;
+  opacity: 0.6;
+}
+
+/* ─── Responsive: 1200px ─── */
+@media (max-width: 1200px) {
+  .video-bento-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(260px, auto);
+  }
+
+  .bento-large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+
+  .bento-wide {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .bento-tall {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+}
+
+/* ─── Responsive: 900px ─── */
+@media (max-width: 900px) {
+  .graphics-section {
+    padding: 80px 5% 100px;
+  }
+
+  /* At 900px switch to a clean uniform 2-col grid.
+     All span overrides are reset so every card fills
+     exactly one cell — no orphaned gaps. */
+  .video-bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(220px, auto);
+    gap: 14px;
+  }
+
+  .bento-large,
+  .bento-wide,
+  .bento-tall,
+  .bento-standard {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  /* Always show title pills on touch screens */
+  .bento-title {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .bento-number {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Last card spans full width if it's the odd one out */
+  .video-bento-grid .bento-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1 !important;
+  }
+
+  .graphics-header {
+    margin-bottom: 60px;
+  }
+}
+
+/* ─── Responsive: 600px ─── */
+@media (max-width: 600px) {
+  .graphics-section {
+    padding: 70px 4% 80px;
+  }
+
+  .graphics-back-btn {
+    margin-bottom: 50px;
+  }
+
+  .video-bento-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: minmax(200px, auto);
+    gap: 12px;
+  }
+
+  .bento-large,
+  .bento-wide,
+  .bento-tall,
+  .bento-standard {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .graphics-title {
+    font-size: 40px;
+  }
+
+  .graphics-subtitle {
+    font-size: 15px;
+  }
+}

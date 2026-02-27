@@ -1,0 +1,125 @@
+.about {
+    padding: 160px 64px;
+    background-color: var(--cream);
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.about-left {
+    display: flex;
+    justify-content: center;
+}
+
+.portrait-frame {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 3/4;
+    background-color: var(--ink);
+    position: relative;
+    border: 1px solid var(--gold);
+}
+
+.portrait-inner {
+    position: absolute;
+    inset: 20px;
+    border: 1px solid var(--ink2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portrait-initial {
+    font-family: var(--serif);
+    font-size: 160px;
+    color: var(--gold);
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.portrait-tag {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--gold);
+    color: var(--ink);
+    padding: 12px;
+    font-family: var(--sans);
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.about-quote {
+    font-family: var(--serif);
+    font-size: 48px;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+.about-quote i {
+    color: var(--gold);
+}
+
+.about-body {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 48px;
+}
+
+.about-body p {
+    margin-bottom: 24px;
+}
+
+.about-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.tag-pill {
+    padding: 10px 24px;
+    border: 1px solid var(--rule);
+    border-radius: 50px;
+    font-family: var(--sans);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.tag-pill:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+    .about {
+        padding: 80px 28px;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 64px;
+    }
+
+    .about-quote {
+        font-size: 32px;
+    }
+}

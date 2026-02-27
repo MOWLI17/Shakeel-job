@@ -1,0 +1,68 @@
+.tools {
+    padding: 120px 0;
+    background-color: #F6F4EB;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background-color: rgba(0, 0, 0, 0.08);
+    gap: 1px;
+}
+
+.tool-cell {
+    background-color: #F6F4EB;
+    padding: 70px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.4s ease;
+    cursor: default;
+}
+
+.tool-cell:hover {
+    background-color: #F0EEDF;
+    z-index: 10;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.tool-icon {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tool-name {
+    font-family: var(--serif, serif);
+    font-size: 20px;
+    color: #1a1a1a;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.tool-cat {
+    font-family: var(--sans, sans-serif);
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 3px;
+    font-weight: 700;
+    color: #B8962E;
+}
+
+@media (max-width: 900px) {
+    .tools {
+        padding: 80px 0;
+    }
+
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tool-cell {
+        padding: 48px 20px;
+    }
+}

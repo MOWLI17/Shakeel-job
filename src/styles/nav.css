@@ -1,0 +1,140 @@
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 64px;
+    z-index: 1000;
+    transition: all 0.4s ease;
+    font-family: var(--sans);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.nav.scrolled {
+    padding: 20px 64px;
+    background-color: rgba(245, 240, 232, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule);
+}
+
+.nav-logo {
+    font-family: var(--serif);
+    font-size: 24px;
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 500;
+}
+
+.logo-italic {
+    font-style: italic;
+    color: var(--gold);
+}
+
+.nav-links {
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links li a {
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: var(--gold);
+}
+
+.gold-link {
+    color: var(--gold);
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 2px;
+    transition: all 0.3s ease;
+}
+
+.gold-link:hover {
+    color: var(--gold-dk);
+    border-color: var(--gold-dk);
+}
+
+@media (max-width: 900px) {
+    .nav {
+        padding: 24px 28px;
+    }
+
+    .nav.scrolled {
+        padding: 16px 28px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--ink);
+        gap: 40px;
+        transition: right 0.4s ease-in-out;
+        z-index: 999;
+    }
+
+    .nav-links.mobile-open {
+        right: 0;
+    }
+
+    .nav-links li a {
+        font-size: 24px;
+        color: var(--cream);
+    }
+
+    .nav-links li a:hover {
+        color: var(--gold);
+    }
+
+    .nav-cta {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: none;
+        border: none;
+        color: var(--ink);
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .mobile-menu-btn.open {
+        color: var(--cream);
+    }
+
+    .nav.scrolled .mobile-menu-btn {
+        color: var(--ink);
+    }
+
+    .nav.scrolled .mobile-menu-btn.open {
+        color: var(--cream);
+    }
+
+    /* When inside light themes we want it dark unless open */
+    .mobile-menu-btn {
+        transition: color 0.3s ease;
+    }
+}
+
+@media (min-width: 901px) {
+    .mobile-menu-btn {
+        display: none;
+    }
+}

@@ -1,0 +1,281 @@
+/* ═══════════════════════════════════════════════════════
+   experience.css — Premium Work Experience & Education
+   Matches Project Color Format (Ink, Gold, Cream)
+   ═══════════════════════════════════════════════════════ */
+
+.resume-sec {
+    padding: 120px 5%;
+    background-color: var(--ink);
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+.resume-container {
+    max-width: 1000px;
+    width: 100%;
+}
+
+.resume-section {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ── Section Title Row ── */
+.resume-title-row {
+    margin-bottom: 20px;
+}
+
+.resume-main-title {
+    font-family: var(--sans, sans-serif);
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--gold, #B8962E);
+    letter-spacing: 3px;
+    margin-bottom: 24px;
+}
+
+.resume-title-line {
+    display: none;
+}
+
+/* ── Card Styles ── */
+.rez-card {
+    background: rgba(46, 40, 32, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 18px;
+    padding: 40px 48px;
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.rez-card:hover {
+    border-color: rgba(184, 150, 46, 0.3);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(184, 150, 46, 0.08);
+}
+
+/* Base Left Line - Gold */
+.rez-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 6px;
+    background: linear-gradient(to bottom, var(--gold-lt, #E8D399) 0%, var(--gold, #B8962E) 100%);
+    box-shadow: 0 0 15px rgba(184, 150, 46, 0.5);
+    border-radius: 6px 0 0 6px;
+}
+
+/* ── Work Experience Specific ── */
+.rez-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.rez-title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.rez-role {
+    font-family: var(--sans, sans-serif);
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.5px;
+}
+
+.rez-company {
+    font-family: var(--sans, sans-serif);
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(245, 240, 232, 0.5);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.rez-badges {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Pill Badges */
+.rez-badge {
+    font-family: var(--sans, sans-serif);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 8px 16px;
+    border-radius: 100px;
+    white-space: nowrap;
+}
+
+.rez-badge.solid {
+    background: rgba(184, 150, 46, 0.15);
+    color: var(--gold-lt, #E8D399);
+    border: 1px solid rgba(184, 150, 46, 0.3);
+}
+
+.rez-badge.outline {
+    background: rgba(184, 150, 46, 0.05);
+    color: var(--gold, #B8962E);
+    border: 1px solid rgba(184, 150, 46, 0.3);
+}
+
+.rez-toggle {
+    background: none;
+    border: none;
+    color: rgba(245, 240, 232, 0.5);
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.rez-toggle:hover {
+    color: #fff;
+}
+
+/* Experience List Section */
+.rez-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.rez-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-family: var(--sans, sans-serif);
+    font-size: 15px;
+    color: rgba(245, 240, 232, 0.75);
+    line-height: 1.6;
+}
+
+.rez-list li span {
+    color: var(--gold, #B8962E);
+    font-size: 14px;
+    margin-top: 2px;
+    opacity: 0.8;
+}
+
+/* Skills Chips */
+.rez-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.rez-skill-chip {
+    font-family: var(--sans, sans-serif);
+    font-size: 13px;
+    color: var(--gold-lt, #E8D399);
+    background: rgba(184, 150, 46, 0.08);
+    border: 1px solid rgba(184, 150, 46, 0.2);
+    padding: 8px 18px;
+    border-radius: 100px;
+    transition: all 0.3s ease;
+}
+
+.rez-skill-chip:hover {
+    background: rgba(184, 150, 46, 0.15);
+    border-color: rgba(184, 150, 46, 0.4);
+}
+
+/* ── Education Specific ── */
+.edu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+/* Sub-card tweaks */
+.edu-card {
+    padding: 32px 40px;
+    gap: 40px;
+}
+
+.edu-header {
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.edu-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .resume-main-title {
+        font-size: 30px;
+    }
+
+    .rez-card {
+        padding: 32px;
+    }
+
+    .edu-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .resume-sec {
+        padding: 80px 5%;
+    }
+
+    .rez-card {
+        padding: 24px;
+    }
+
+    .rez-card-header {
+        flex-direction: column-reverse;
+        /* Put dates on top of title */
+    }
+
+    .rez-badges {
+        width: 100%;
+        justify-content: flex-start;
+        margin-bottom: 8px;
+    }
+
+    .rez-toggle {
+        display: none;
+        /* Hide toggle on mobile header wrap to avoid mess */
+    }
+
+    .edu-header {
+        flex-direction: row;
+    }
+
+    .rez-role {
+        font-size: 22px;
+    }
+
+    .rez-list li {
+        font-size: 14px;
+    }
+}
