@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 import './CssPage/Graphics.css'
@@ -54,6 +54,15 @@ const mediaItems = [
 
 const Graphics = () => {
   const navigate = useNavigate()
+  const videoRefs = useRef([])
+
+  const handlePlay = (index) => {
+    videoRefs.current.forEach((video, i) => {
+      if (i !== index && video) {
+        video.pause()
+      }
+    })
+  }
 
   return (
     <section className="graphics-section">
@@ -86,34 +95,43 @@ const Graphics = () => {
 
         {/* Bento Grid */}
         <div className="video-bento-grid">
-          {mediaItems.map((item, index) => (
-            <div
-              key={index}
-              className="bento-card bento-standard"
-            >
-              {/* Video iframe */}
-              <div className="video-wrapper">
-                <iframe
-                  src={item.url}
-                  frameBorder="0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  title={item.title}
-                  loading="lazy"
-                />
+          {mediaItems.map((item, index) => {
+            const driveMatch = item.url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+            const videoSrc = driveMatch
+              ? `https://drive.google.com/uc?export=download&id=${driveMatch[1]}`
+              : item.url;
+
+            return (
+              <div
+                key={index}
+                className="bento-card bento-standard"
+              >
+                {/* Video HTML5 */}
+                <div className="video-wrapper">
+                  <video
+                    ref={(el) => videoRefs.current[index] = el}
+                    src={videoSrc}
+                    controls
+                    controlsList="nodownload nofullscreen noremoteplayback"
+                    disablePictureInPicture
+                    onPlay={() => handlePlay(index)}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                </div>
+
+                {/* Index number badge */}
+                <span className="bento-number">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+
+                {/* Title pill on hover */}
+                <span className="bento-title">
+                  <span className="bento-title-dot" />
+                  {item.title}
+                </span>
               </div>
-
-              {/* Index number badge */}
-              <span className="bento-number">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-
-              {/* Title pill on hover */}
-              <span className="bento-title">
-                <span className="bento-title-dot" />
-                {item.title}
-              </span>
-            </div>
-          ))}
+            )
+          })}
         </div>
 
         {/* Bottom accent line */}

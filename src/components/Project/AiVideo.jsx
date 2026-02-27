@@ -1,40 +1,18 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 
 const AiVideo = () => {
   const navigate = useNavigate()
-  const iframeRefs = useRef([])
-  const activeVideoIndexRef = useRef(null)
+  const videoRefs = useRef([])
 
-  useEffect(() => {
-    const handleBlur = () => {
-      setTimeout(() => {
-        const active = document.activeElement;
-        // Check if the newly focused element is one of our iframes
-        if (active && active.tagName === 'IFRAME' && active.id && active.id.startsWith('drive-iframe-')) {
-          const clickedIndex = parseInt(active.id.replace('drive-iframe-', ''), 10);
-
-          // Only refresh if the user switched to a DIFFERENT video
-          if (activeVideoIndexRef.current !== clickedIndex) {
-            if (activeVideoIndexRef.current !== null) {
-              // Reload ONLY the previously playing iframe to stop it
-              const prevIframe = iframeRefs.current[activeVideoIndexRef.current];
-              if (prevIframe) {
-                const currentSrc = prevIframe.src;
-                prevIframe.src = currentSrc;
-              }
-            }
-            // Update the currently playing video index
-            activeVideoIndexRef.current = clickedIndex;
-          }
-        }
-      }, 50);
-    };
-
-    window.addEventListener('blur', handleBlur);
-    return () => window.removeEventListener('blur', handleBlur);
-  }, []);
+  const handlePlay = (index) => {
+    videoRefs.current.forEach((video, i) => {
+      if (video && i !== index) {
+        video.pause()
+      }
+    })
+  }
 
   // ADD YOUR IMAGE OR VIDEO LINKS HERE
   // For images: Just paste the image URL
@@ -106,14 +84,17 @@ const AiVideo = () => {
 
             // Determine if it's a video/embed link (Google Drive, Vimeo, YouTube)
             const isEmbed = cleanUrl.includes('drive.google.com') || cleanUrl.includes('vimeo.com') || cleanUrl.includes('youtube.com');
+            const isDrive = cleanUrl.includes('drive.google.com');
 
             let embedUrl = cleanUrl;
-            // Convert Google Drive /view links to /preview for embedding
-            if (cleanUrl.includes('drive.google.com')) {
+            // Convert Google Drive links for native html5 video download link
+            if (isDrive) {
               const match = cleanUrl.match(/\/d\/([a-zA-Z0-9_-]+)/);
               if (match && match[1]) {
-                embedUrl = `https://drive.google.com/file/d/${match[1]}/preview`;
+                embedUrl = `https://drive.google.com/uc?export=download&id=${match[1]}`;
               }
+            } else if (cleanUrl.includes('youtube.com') || cleanUrl.includes('vimeo.com')) {
+              // Normal embed for vimeo / youtube if added
             }
 
             return (
@@ -125,12 +106,10 @@ const AiVideo = () => {
                   border: '1px solid rgba(255, 255, 255, 0.1)',
                   aspectRatio: '1',
                   overflow: 'hidden',
-                  cursor: 'pointer',
                   transition: 'all 0.4s ease',
                   position: 'relative'
                 }}
                 onMouseEnter={(e) => {
-                  window.focus(); // Prepare window focus so iframe click registers a reliable blur
                   e.currentTarget.style.transform = 'scale(1.05)'
                   e.currentTarget.style.borderColor = '#C9F31D'
                 }}
@@ -139,10 +118,22 @@ const AiVideo = () => {
                   e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)'
                 }}
               >
-                {isEmbed ? (
+                {isDrive ? (
+                  <video
+                    ref={(el) => videoRefs.current[index] = el}
+                    src={embedUrl}
+                    controls
+                    controlsList="nodownload nofullscreen noremoteplayback"
+                    disablePictureInPicture
+                    onPlay={() => handlePlay(index)}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover'
+                    }}
+                  />
+                ) : isEmbed ? (
                   <iframe
-                    id={`drive-iframe-${index}`}
-                    ref={(el) => iframeRefs.current[index] = el}
                     src={embedUrl}
                     style={{
                       width: '100%',
@@ -164,7 +155,6 @@ const AiVideo = () => {
                       display: 'block'
                     }}
                     onError={(e) => {
-                      // Fallback if image fails to load
                       e.target.style.display = 'none'
                       e.target.parentElement.innerHTML = `
                       <div style="
@@ -188,11 +178,9 @@ const AiVideo = () => {
           })}
         </div>
 
-
       </div>
     </section>
   )
 }
-
 
 export default AiVideo

@@ -4,9 +4,9 @@ import { Smartphone, Play, Hexagon, FileText, Video, Layers, ArrowRight } from '
 import '../styles/works.css';
 
 import bg1 from '../image/background/1.jpg.jpeg';
-import bg2 from '../image/background/2.jpg.jpeg';
+import bg2 from '../image/background/4.jpg.jpeg';
 import bg3 from '../image/background/3.jpg.jpeg';
-import bg4 from '../image/background/4.jpg.jpeg';
+import bg4 from '../image/background/2.jpg.jpeg';
 import bg5 from '../image/background/5.jpg.jpeg';
 import pmImage from '../image/product manupulation/Gemini_Generated_Image_gvczcogvczcogvcz.png';
 
@@ -38,8 +38,8 @@ const Works = () => {
         <section className="works" id="works">
             <div className="works-container">
                 <div className="section-header reveal">
-                    <span className="section-eyebrow">Portfolio</span>
-                    <h2 className="section-title">Visual <i>Case Studies</i></h2>
+                    
+                    <h2 className="section-title">Projects</h2>
                 </div>
 
                 <div className="works-grid">
