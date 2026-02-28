@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './styles/global.css';
 import Cursor from './components/Cursor.jsx';
+import WhatsAppButton from './components/WhatsAppButton.jsx';
 import Nav from './components/Nav.jsx';
 import Hero from './components/Hero.jsx';
 import Marquee from './components/Marquee.jsx';
@@ -24,6 +25,7 @@ function App() {
     return (
         <div className="app-container">
             <Cursor />
+            <WhatsAppButton />
             <Routes>
                 <Route path="/" element={
                     <>
