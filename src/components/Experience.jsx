@@ -73,7 +73,7 @@ const Experience = () => {
                             role="Digital Marketer"
                             company="WORKFREAKS BUSINESS SERVICES PVT LTD"
                             date1="PRESENT"
-                            date2="JUL 2023 – NOW"
+                            date2="AUG 2023 – NOW"
                             points={[
                                 "Planned, executed, and optimized Meta Ads campaigns to drive lead generation and brand awareness",
                                 "Managed social media platforms — Instagram, Facebook, LinkedIn",
