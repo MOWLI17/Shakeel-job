@@ -48,6 +48,8 @@ const About = () => {
                         <span className="tag-pill">Ads Management</span>
                         <span className="tag-pill">Visual Storytelling</span>
                         <span className="tag-pill">ROI Focused</span>
+                        <span className="tag-pill">AI Content Creater</span>
+
                     </div>
                 </div>
             </div>

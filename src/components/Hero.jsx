@@ -28,7 +28,7 @@ const Hero = () => {
                             <span className="desc-item">Specializing in ROI</span>
                             <span className="desc-sep">•</span>
                             <span className="desc-item">Brand Growth</span>
-                             <span className="desc-item">Content Creater</span>
+                             <span className="desc-item"> AI Content Creater</span>
                             <span className="desc-sep">•</span>
                         </div>
                         <div className="hero-description">
@@ -47,7 +47,7 @@ const Hero = () => {
                     <div className="hero-stats">
                         <div className="stat-item reveal">
                             <span className="stat-num">80+</span>
-                            <span className="stat-label">Clients Helped</span>
+                            <span className="stat-label">  Clients Helped</span>
                         </div>
                         <div className="stat-item reveal">
                             <span className="stat-num">300%</span>
