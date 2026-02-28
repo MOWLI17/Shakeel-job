@@ -1,6 +1,7 @@
-import React, { useRef } from 'react'
+import React, { useRef,useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
+
 import './CssPage/Graphics.css'
 
 const mediaItems = [
@@ -54,15 +55,30 @@ const mediaItems = [
 
 const Graphics = () => {
   const navigate = useNavigate()
-  const videoRefs = useRef([])
+  const iframeRefs = useRef([])
 
-  const handlePlay = (index) => {
-    videoRefs.current.forEach((video, i) => {
-      if (i !== index && video) {
-        video.pause()
+  useEffect(() => {
+    const handleBlur = () => {
+      const activeEl = document.activeElement;
+      if (activeEl && activeEl.tagName === 'IFRAME') {
+        const index = iframeRefs.current.indexOf(activeEl);
+        if (index !== -1) {
+          iframeRefs.current.forEach((iframe, i) => {
+            if (i !== index && iframe) {
+              const currentSrc = iframe.src;
+              // Reset the src to stop the video from playing
+              iframe.src = currentSrc;
+            }
+          });
+        }
       }
-    })
-  }
+    };
+
+    window.addEventListener('blur', handleBlur);
+    return () => {
+      window.removeEventListener('blur', handleBlur);
+    };
+  }, []);
 
   return (
     <section className="graphics-section">
@@ -97,8 +113,8 @@ const Graphics = () => {
         <div className="video-bento-grid">
           {mediaItems.map((item, index) => {
             const driveMatch = item.url.match(/\/d\/([a-zA-Z0-9_-]+)/);
-            const videoSrc = driveMatch
-              ? `https://drive.google.com/uc?export=download&id=${driveMatch[1]}`
+            const iframeSrc = driveMatch
+              ? `https://drive.google.com/file/d/${driveMatch[1]}/preview`
               : item.url;
 
             return (
@@ -106,16 +122,15 @@ const Graphics = () => {
                 key={index}
                 className="bento-card bento-standard"
               >
-                {/* Video HTML5 */}
+                {/* Video Iframe */}
                 <div className="video-wrapper">
-                  <video
-                    ref={(el) => videoRefs.current[index] = el}
-                    src={videoSrc}
-                    controls
-                    controlsList="nodownload nofullscreen noremoteplayback"
-                    disablePictureInPicture
-                    onPlay={() => handlePlay(index)}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  <iframe
+                    ref={(el) => iframeRefs.current[index] = el}
+                    src={iframeSrc}
+                    allow="autoplay; fullscreen"
+                    allowFullScreen
+                    style={{ border: 'none', width: '100%', height: '100%', backgroundColor: '#000' }}
+                    title={item.title}
                   />
                 </div>
 

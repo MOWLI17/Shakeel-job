@@ -1,10 +1,27 @@
-# https://www.robotstxt.org/robotstxt.html
+# ═══════════════════════════════════════════════
+# robots.txt — Shakeel Arafath Portfolio
+# https://shakeelarafath.in
+# ═══════════════════════════════════════════════
+
+# Allow all crawlers
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://shakeelarafath.in/sitemap.xml
+# Project pages — allow indexing
+Allow: /project/
+Allow: /project/social-media
+Allow: /project/graphics
+Allow: /project/logo
+Allow: /project/print-design
+Allow: /project/ai-video
+Allow: /project/product-manipulation
 
-# Disallow admin or private pages (if any)
+# Disallow build artifacts and private paths
+Disallow: /static/js/
+Disallow: /static/css/
 Disallow: /admin/
 Disallow: /private/
+Disallow: /*.json$
+
+# Sitemap location
+Sitemap: https://shakeelarafath.in/sitemap.xml

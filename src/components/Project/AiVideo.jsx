@@ -1,18 +1,33 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 
 const AiVideo = () => {
   const navigate = useNavigate()
-  const videoRefs = useRef([])
+  const iframeRefs = useRef([])
 
-  const handlePlay = (index) => {
-    videoRefs.current.forEach((video, i) => {
-      if (video && i !== index) {
-        video.pause()
+  useEffect(() => {
+    const handleBlur = () => {
+      const activeEl = document.activeElement;
+      if (activeEl && activeEl.tagName === 'IFRAME') {
+        const index = iframeRefs.current.indexOf(activeEl);
+        if (index !== -1) {
+          iframeRefs.current.forEach((iframe, i) => {
+            if (i !== index && iframe) {
+              const currentSrc = iframe.src;
+              // Reset the src to stop the video from playing
+              iframe.src = currentSrc;
+            }
+          });
+        }
       }
-    })
-  }
+    };
+
+    window.addEventListener('blur', handleBlur);
+    return () => {
+      window.removeEventListener('blur', handleBlur);
+    };
+  }, []);
 
   // ADD YOUR IMAGE OR VIDEO LINKS HERE
   // For images: Just paste the image URL
@@ -87,11 +102,11 @@ const AiVideo = () => {
             const isDrive = cleanUrl.includes('drive.google.com');
 
             let embedUrl = cleanUrl;
-            // Convert Google Drive links for native html5 video download link
+            // Convert Google Drive links for iframe preview
             if (isDrive) {
               const match = cleanUrl.match(/\/d\/([a-zA-Z0-9_-]+)/);
               if (match && match[1]) {
-                embedUrl = `https://drive.google.com/uc?export=download&id=${match[1]}`;
+                embedUrl = `https://drive.google.com/file/d/${match[1]}/preview`;
               }
             } else if (cleanUrl.includes('youtube.com') || cleanUrl.includes('vimeo.com')) {
               // Normal embed for vimeo / youtube if added
@@ -118,22 +133,9 @@ const AiVideo = () => {
                   e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)'
                 }}
               >
-                {isDrive ? (
-                  <video
-                    ref={(el) => videoRefs.current[index] = el}
-                    src={embedUrl}
-                    controls
-                    controlsList="nodownload nofullscreen noremoteplayback"
-                    disablePictureInPicture
-                    onPlay={() => handlePlay(index)}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover'
-                    }}
-                  />
-                ) : isEmbed ? (
+                {isDrive || isEmbed ? (
                   <iframe
+                    ref={(el) => iframeRefs.current[index] = el}
                     src={embedUrl}
                     style={{
                       width: '100%',
@@ -143,7 +145,7 @@ const AiVideo = () => {
                     allow="autoplay; fullscreen; picture-in-picture"
                     allowFullScreen
                     title={`AI Video ${index + 1}`}
-                  ></iframe>
+                  />
                 ) : (
                   <img
                     src={embedUrl}

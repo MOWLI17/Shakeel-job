@@ -1,7 +1,7 @@
 {
   "short_name": "Shakeel Arafath",
-  "name": "Shakeel Arafath - Digital Marketing Expert",
-  "description": "Professional Digital Marketer specializing in social media marketing, Meta Ads, and content creation",
+  "name": "Shakeel Arafath | Digital Marketer & Motion Graphic Designer",
+  "description": "Results-driven Digital Marketer & Motion Graphic Designer based in Chennai. Meta Ads, social media strategy, motion graphics, and visual content creation.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -11,23 +11,27 @@
     {
       "src": "logo192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any maskable"
     },
     {
       "src": "logo512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "any maskable"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "theme_color": "#C9F31D",
-  "background_color": "#131313",
+  "theme_color": "#B8962E",
+  "background_color": "#1A1610",
   "orientation": "portrait-primary",
   "categories": [
     "business",
-    "marketing",
-    "portfolio"
+    "portfolio",
+    "design"
   ],
-  "lang": "en-US"
+  "lang": "en-IN",
+  "dir": "ltr"
 }

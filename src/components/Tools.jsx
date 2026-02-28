@@ -1,8 +1,14 @@
 import React, { useEffect } from 'react';
-import { FaInstagram, FaTiktok } from 'react-icons/fa';
+import { FaInstagram } from 'react-icons/fa';
 import { SiAdobepremierepro, SiCanva, SiMeta, SiNotion, SiOpenai } from 'react-icons/si';
 import { FcGoogle } from 'react-icons/fc';
 import '../styles/tools.css';
+
+const CapcutIcon = ({ size = 36, color = "currentColor" }) => (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke={color} strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9.998 12L2 16c0 1.886 0 2.328.586 2.914S4.114 19.5 6 19.5h8c1.886 0 2.828 0 3.414-.586S18 17.886 18 16m-8.002-4l11.998-6M9.998 12L2 8c0-1.386 0-2.328.586-2.914S4.114 4.5 6 4.5h8c1.886 0 2.828 0 3.414.586S18 6.614 18 8m-8.002 4l11.998 6" />
+    </svg>
+);
 
 const Tools = () => {
     useEffect(() => {
@@ -24,7 +30,7 @@ const Tools = () => {
         { icon: <SiMeta size={36} color="#0668E1" />, name: 'Meta Manager', category: 'Ads Admin' },
         { icon: <FcGoogle size={36} />, name: 'Google Search', category: 'SEM/SEO' },
         { icon: <SiNotion size={36} color="#000000" />, name: 'Notion', category: 'Planning' },
-        { icon: <FaTiktok size={36} color="#000000" />, name: 'CapCut', category: 'Mobile Video' },
+        { icon: <CapcutIcon size={36} color="#000000" />, name: 'CapCut', category: 'Mobile Video' },
         { icon: <SiOpenai size={36} color="#10a37f" />, name: 'ChatGPT', category: 'Copywriting' },
     ];
 

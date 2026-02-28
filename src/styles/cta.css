@@ -109,3 +109,23 @@
         width: 100%;
     }
 }
+
+.cta-social-links {
+    margin-top: 56px;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+}
+
+.cta-social-links a {
+    color: var(--cream);
+    font-size: 26px;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.cta-social-links a:hover {
+    color: var(--gold);
+    opacity: 1;
+    transform: translateY(-4px);
+}

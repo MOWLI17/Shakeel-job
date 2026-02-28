@@ -50,10 +50,6 @@ const Hero = () => {
                             <span className="stat-num">300%</span>
                             <span className="stat-label">Avg. Growth</span>
                         </div>
-                        <div className="stat-item reveal">
-                            <span className="stat-num">8+</span>
-                            <span className="stat-label">Years of Focus</span>
-                        </div>
                     </div>
                 </div>
             </div>

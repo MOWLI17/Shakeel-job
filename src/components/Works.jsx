@@ -26,19 +26,20 @@ const Works = () => {
     const navigate = useNavigate();
 
     const worksData = [
-        { icon: <Smartphone size={24} color="#B8962E" />, title: 'Social Media Posters', image: bg1, link: '/project/social-media' },
-        { icon: <Play size={24} color="#B8962E" />, title: 'Motion Graphics &\nVideo Edits', image: bg2, link: '/project/graphics' },
-        { icon: <Hexagon size={24} color="#B8962E" />, title: 'Logo Design', image: bg3, link: '/project/logo' },
-        { icon: <FileText size={24} color="#B8962E" />, title: 'Print Design', image: bg4, link: '/project/print-design' },
         { icon: <Video size={24} color="#B8962E" />, title: 'AI Video Creation', image: bg5, link: '/project/ai-video' },
         { icon: <Layers size={24} color="#B8962E" />, title: 'Product Manipulation', image: pmImage, link: '/project/product-manipulation' },
+        { icon: <Smartphone size={24} color="#B8962E" />, title: 'Social Media Posters', image: bg1, link: '/project/social-media' },
+        { icon: <Hexagon size={24} color="#B8962E" />, title: 'Logo Design', image: bg3, link: '/project/logo' },
+        { icon: <FileText size={24} color="#B8962E" />, title: 'Print Design', image: bg4, link: '/project/print-design' },
+        { icon: <Play size={24} color="#B8962E" />, title: 'Motion Graphics &\nVideo Edits', image: bg2, link: '/project/graphics' },
+
     ];
 
     return (
         <section className="works" id="works">
             <div className="works-container">
                 <div className="section-header reveal">
-                    
+
                     <h2 className="section-title">Projects</h2>
                 </div>
 

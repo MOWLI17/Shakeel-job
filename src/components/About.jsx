@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import '../styles/about.css';
+import shakeelImg from '../image/shakeel.jpeg';
 
 const About = () => {
     useEffect(() => {
@@ -20,12 +21,12 @@ const About = () => {
         <section className="about" id="about">
             <div className="about-container">
                 <div className="about-left reveal left">
-                    <div className="portrait-frame">
-                        <div className="portrait-inner">
-                            <span className="portrait-initial">S</span>
-                        </div>
-                        <div className="portrait-tag">Editorial Marketing Specialist</div>
-                    </div>
+                    <img
+                        src={shakeelImg}
+                        alt="Shakeel Arafath"
+                        className="portrait-image"
+                        style={{ width: '100%', maxWidth: '400px', height: 'auto', objectFit: 'cover' }}
+                    />
                 </div>
                 <div className="about-right reveal right">
                     <h2 className="about-quote">
