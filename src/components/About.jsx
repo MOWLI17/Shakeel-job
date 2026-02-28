@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import '../styles/about.css';
-import shakeelImg from '../image/shakeel.jpeg';
+import shakeelImg from '../image/shakeel.PNG';
 
 const About = () => {
     useEffect(() => {

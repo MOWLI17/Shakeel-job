@@ -44,6 +44,12 @@
     margin-left: 20%;
 }
 
+.hero-description-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
 .hero-description {
     display: flex;
     align-items: center;

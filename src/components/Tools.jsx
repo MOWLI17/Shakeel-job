@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { FaInstagram } from 'react-icons/fa';
-import { SiAdobepremierepro, SiCanva, SiMeta, SiNotion, SiOpenai } from 'react-icons/si';
+import { SiAdobepremierepro, SiCanva, SiMeta, SiNotion,  SiAdobephotoshop } from 'react-icons/si';
 import { FcGoogle } from 'react-icons/fc';
 import '../styles/tools.css';
 
@@ -31,7 +31,7 @@ const Tools = () => {
         { icon: <FcGoogle size={36} />, name: 'Google Search', category: 'SEM/SEO' },
         { icon: <SiNotion size={36} color="#000000" />, name: 'Notion', category: 'Planning' },
         { icon: <CapcutIcon size={36} color="#000000" />, name: 'CapCut', category: 'Mobile Video' },
-        { icon: <SiOpenai size={36} color="#10a37f" />, name: 'ChatGPT', category: 'Copywriting' },
+        { icon: <SiAdobephotoshop size={36} color="#31A8FF" />, name: 'Photoshop', category: 'Photo Edit' },
     ];
 
     return (

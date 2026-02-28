@@ -1,10 +1,11 @@
 {
   "files": {
-    "main.css": "/static/css/main.b2c60c75.css",
-    "main.js": "/static/js/main.29b45413.js",
-    "static/js/206.8595827b.chunk.js": "/static/js/206.8595827b.chunk.js",
+    "main.css": "/static/css/main.711b0d9b.css",
+    "main.js": "/static/js/main.aa25c06f.js",
+    "static/js/206.4d97a599.chunk.js": "/static/js/206.4d97a599.chunk.js",
     "static/media/128.jpg": "/static/media/128.11140387cc7c1b6b8e52.jpg",
     "static/media/551.jpg": "/static/media/551.a6f5c37e6d81976eaf75.jpg",
+    "static/media/shakeel.PNG": "/static/media/shakeel.eae81aaaedd8923c3acd.PNG",
     "static/media/ideogram-v3.0_Create_a_dynamic_product_manipulation_featuring_a_Nike_sneaker_floating_mid-air.-0.jpg.jpeg": "/static/media/ideogram-v3.0_Create_a_dynamic_product_manipulation_featuring_a_Nike_sneaker_floating_mid-air.-0.jpg.f1944dae143b6f31a285.jpeg",
     "static/media/20.png": "/static/media/20.5e1922e5a3749a1a5bab.png",
     "static/media/ideogram-v3.0_Design_a_stylish_3D_logo_for_a_modern_cafe_brand_named_Urban_Roast_._Warm_bronze-0.jpg.jpeg": "/static/media/ideogram-v3.0_Design_a_stylish_3D_logo_for_a_modern_cafe_brand_named_Urban_Roast_._Warm_bronze-0.jpg.e8cb0362a6529ac1ec6e.jpeg",
@@ -44,7 +45,7 @@
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/css/main.b2c60c75.css",
-    "static/js/main.29b45413.js"
+    "static/css/main.711b0d9b.css",
+    "static/js/main.aa25c06f.js"
   ]
 }

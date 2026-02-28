@@ -23,17 +23,20 @@ const Hero = () => {
                         <div className="first-name">Shakeel</div>
                         <div className="last-name">Arafath</div>
                     </h1>
-                    <div className="hero-description reveal">
-                        <span className="desc-item">Specializing in ROI</span>
-                        <span className="desc-sep">•</span>
-                        <span className="desc-item">Brand Growth</span>
-                        <span className="desc-sep">•</span>
-                        <span className="desc-item">Based in Chennai</span>
+                    <div className="hero-description-wrapper reveal">
+                        <div className="hero-description">
+                            <span className="desc-item">Specializing in ROI</span>
+                            <span className="desc-sep">•</span>
+                            <span className="desc-item">Brand Growth</span>
+                             <span className="desc-item">Content Creater</span>
+                            <span className="desc-sep">•</span>
+                        </div>
+                        <div className="hero-description">
+                            <span className="desc-item">Based in Chennai</span>
+                        </div>
                     </div>
                 </div>
-                <div className="scroll-hint reveal">
-                    <div className="scroll-line"></div>
-                </div>
+
             </div>
             <div className="hero-right">
                 <div className="big-letter">S</div>
