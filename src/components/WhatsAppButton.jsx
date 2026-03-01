@@ -7,7 +7,7 @@ const WhatsAppButton = () => {
         <div className="whatsapp-container">
             <div className="whatsapp-tooltip">Chat with me</div>
             <a
-                href="https://wa.me/919363053614"
+                href="https://wa.me/9193630 58614"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="whatsapp-button"
