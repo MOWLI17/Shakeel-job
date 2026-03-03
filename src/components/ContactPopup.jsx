@@ -5,7 +5,7 @@ import '../styles/contact-popup.css';
 const SITE_CONFIG = {
     email: 'shakeelmcsa@gmail.com',
     phone: '+91 93630 58614',
-    whatsapp: '91 93630 58614',
+    whatsapp: '91 9363058614',
     social: {
         github: '#',
         linkedin: 'https://linkedin.com/in/shakeel-arafath-0b012a340',
