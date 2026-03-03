@@ -23,9 +23,10 @@ const About = () => {
                 <div className="about-left reveal left">
                     <img
                         src={shakeelImg}
-                        alt="Shakeel Arafath"
+                        alt="Shakeel Arafath - Digital Marketer & Motion Graphic Designer"
                         className="portrait-image"
                         style={{ width: '100%', maxWidth: '400px', height: 'auto', objectFit: 'cover' }}
+                        loading="lazy"
                     />
                 </div>
                 <div className="about-right reveal right">
@@ -48,7 +49,7 @@ const About = () => {
                         <span className="tag-pill">Ads Management</span>
                         <span className="tag-pill">Visual Storytelling</span>
                         <span className="tag-pill">ROI Focused</span>
-                        <span className="tag-pill">AI Content Creater</span>
+                        <span className="tag-pill">AI Content Creator</span>
 
                     </div>
                 </div>

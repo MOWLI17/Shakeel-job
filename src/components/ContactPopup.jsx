@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { X } from 'lucide-react';
+import { X, Instagram, Linkedin, Phone, Mail } from 'lucide-react';
 import '../styles/contact-popup.css';
 
 const SITE_CONFIG = {
     email: 'shakeelmcsa@gmail.com',
     phone: '+91 93630 58614',
-    whatsapp: '91 9363058614',
+    whatsapp: '+91 9363058614',
     social: {
-        github: '#',
+        instagram: 'https://www.instagram.com/shakeelarafath/',
         linkedin: 'https://linkedin.com/in/shakeel-arafath-0b012a340',
     }
 };
@@ -174,7 +174,35 @@ const ContactPopup = ({ onClose }) => {
                                 )}
                             </div>
 
+                            {/* Right Column: Info */}
+                            <div className="popup-info">
+                                <div className="info-item">
+                                    <div className="info-icon"><Mail size={20} /></div>
+                                    <div className="info-text">
+                                        <span>Email me at</span>
+                                        <a href={`mailto:${SITE_CONFIG.email}`}>{SITE_CONFIG.email}</a>
+                                    </div>
+                                </div>
+                                <div className="info-item">
+                                    <div className="info-icon"><Phone size={20} /></div>
+                                    <div className="info-text">
+                                        <span>Call me at</span>
+                                        <a href={`tel:${SITE_CONFIG.phone.replace(/\s/g, '')}`}>{SITE_CONFIG.phone}</a>
+                                    </div>
+                                </div>
 
+                                <div className="popup-socials">
+                                    <p>Connect with me:</p>
+                                    <div className="social-links-row">
+                                        <a href={SITE_CONFIG.social.instagram} target="_blank" rel="noopener noreferrer" className="social-link-icon" aria-label="Instagram">
+                                            <Instagram size={24} />
+                                        </a>
+                                        <a href={SITE_CONFIG.social.linkedin} target="_blank" rel="noopener noreferrer" className="social-link-icon" aria-label="LinkedIn">
+                                            <Linkedin size={24} />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>

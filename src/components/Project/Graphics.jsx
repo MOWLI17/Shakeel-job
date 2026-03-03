@@ -1,6 +1,7 @@
-import React, { useRef,useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, PlayCircle } from 'lucide-react'
+import SEO from '../SEO'
 
 import './CssPage/Graphics.css'
 
@@ -56,32 +57,53 @@ const mediaItems = [
 const Graphics = () => {
   const navigate = useNavigate()
   const iframeRefs = useRef([])
+  const [activeVideoIndex, setActiveVideoIndex] = useState(null)
+
+  // Use a ref for the active index to use inside the blur handler without stale closure issues
+  const activeVideoIndexRef = useRef(null)
 
   useEffect(() => {
     const handleBlur = () => {
-      const activeEl = document.activeElement;
-      if (activeEl && activeEl.tagName === 'IFRAME') {
-        const index = iframeRefs.current.indexOf(activeEl);
-        if (index !== -1) {
-          iframeRefs.current.forEach((iframe, i) => {
-            if (i !== index && iframe) {
-              const currentSrc = iframe.src;
-              // Reset the src to stop the video from playing
-              iframe.src = currentSrc;
+      setTimeout(() => {
+        const active = document.activeElement;
+        // Check if the newly focused element is one of our iframes
+        if (active && active.tagName === 'IFRAME' && active.id && active.id.startsWith('graphics-iframe-')) {
+          const clickedIndex = parseInt(active.id.replace('graphics-iframe-', ''), 10);
+
+          // Only refresh if the user switched to a DIFFERENT video
+          if (activeVideoIndexRef.current !== clickedIndex) {
+            if (activeVideoIndexRef.current !== null) {
+              // Reload ONLY the previously playing iframe to stop it
+              const prevIframe = iframeRefs.current[activeVideoIndexRef.current];
+              if (prevIframe) {
+                const currentSrc = prevIframe.src;
+                prevIframe.src = currentSrc;
+              }
             }
-          });
+            // Update the currently playing video index
+            activeVideoIndexRef.current = clickedIndex;
+            setActiveVideoIndex(clickedIndex);
+          }
         }
-      }
+      }, 100);
     };
 
     window.addEventListener('blur', handleBlur);
-    return () => {
-      window.removeEventListener('blur', handleBlur);
-    };
+    return () => window.removeEventListener('blur', handleBlur);
   }, []);
 
   return (
     <section className="graphics-section">
+      <SEO
+        title="Motion Graphics & Video Edits"
+        description="View professional motion graphics, cinematic intros, and video edits by Shakeel Arafath. High-engagement visual content for brands."
+        keywords="motion graphics, video editing, cinematic intros, promo reels, Shakeel Arafath"
+        url="https://shakeelarafath.in/project/graphics"
+        breadcrumb={[
+          { name: "Portfolio", url: "https://shakeelarafath.in/#works" },
+          { name: "Motion Graphics", url: "https://shakeelarafath.in/project/graphics" }
+        ]}
+      />
       {/* Ambient glow background */}
       <div className="graphics-ambient" />
 
@@ -121,17 +143,39 @@ const Graphics = () => {
               <div
                 key={index}
                 className="bento-card bento-standard"
+                onMouseEnter={() => window.focus()}
               >
                 {/* Video Iframe */}
                 <div className="video-wrapper">
                   <iframe
+                    id={`graphics-iframe-${index}`}
                     ref={(el) => iframeRefs.current[index] = el}
                     src={iframeSrc}
                     allow="autoplay; fullscreen"
                     allowFullScreen
-                    style={{ border: 'none', width: '100%', height: '100%', backgroundColor: '#000' }}
+                    style={{ border: 'none', width: '100%', height: '100%', backgroundColor: '#000', position: 'relative', zIndex: 1 }}
                     title={item.title}
                   />
+
+                  {/* Play Overlay - Only visible when not active */}
+                  {activeVideoIndex !== index && (
+                    <div style={{
+                      position: 'absolute',
+                      inset: '10px',
+                      background: 'rgba(0,0,0,0.5)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      zIndex: 2,
+                      pointerEvents: 'none',
+                      borderRadius: '13px',
+                      transition: 'opacity 0.3s ease'
+                    }}>
+                      <div className="graphics-play-badge">
+                        <PlayCircle size={48} color="#B8962E" />
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Index number badge */}

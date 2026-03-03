@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
+import SEO from '../SEO'
 
 import l1 from '../../image/Logo/ideogram-v3.0_Create_a_premium_3D_metallic_logo_for_a_digital_marketing_agency_named_Elevate_D-0.jpg.jpeg'
 import l2 from '../../image/Logo/ideogram-v3.0_Design_a_stylish_3D_logo_for_a_modern_cafe_brand_named_Urban_Roast_._Warm_bronze-0.jpg.jpeg'
@@ -14,6 +15,16 @@ const Logo = () => {
 
   return (
     <section style={{ background: '#131313', minHeight: '100vh', padding: '120px 5%' }}>
+      <SEO
+        title="Logo Design & Brand Identity"
+        description="Premium 3D metallic logos, stylish brand identities, and futuristic tech logos designed by Shakeel Arafath."
+        keywords="logo design, brand identity, 3D logo, graphic design, Shakeel Arafath"
+        url="https://shakeelarafath.in/project/logo"
+        breadcrumb={[
+          { name: "Portfolio", url: "https://shakeelarafath.in/#works" },
+          { name: "Logo Design", url: "https://shakeelarafath.in/project/logo" }
+        ]}
+      />
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <button
           onClick={() => navigate('/')}

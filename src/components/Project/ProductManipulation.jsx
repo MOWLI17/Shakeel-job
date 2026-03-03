@@ -1,8 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
+import SEO from '../SEO'
 
-import img1 from '../../image/product manupulation/Gemini_Generated_Image_gvczcogvczcogvcz.png'
 import img2 from '../../image/product manupulation/Lucid_Origin_Create_a_highimpact_product_manipulation_featurin_3.jpg.jpeg'
 import img3 from '../../image/product manupulation/Lucid_Origin_Create_a_powerful_product_manipulation_featuring__0.jpg.jpeg'
 import img4 from '../../image/product manupulation/Lucid_Origin_Create_a_vibrant_product_manipulation_featuring_a_0.jpg.jpeg'
@@ -14,10 +14,20 @@ const ProductManipulation = () => {
 
     // ADD YOUR IMAGE OR VIDEO LINKS HERE
     // For images: Just paste the image URL
-    const projectImages = [img1, img2, img3, img4, img5, img6]
+    const projectImages = [img2, img3, img4, img5, img6]
 
     return (
         <section style={{ background: '#131313', minHeight: '100vh', padding: '120px 5%' }}>
+            <SEO
+                title="Product Manipulation & Composite Art"
+                description="Explore stunning product manipulation and photo composite art by Shakeel Arafath. High-impact visual storytelling for e-commerce and brands."
+                keywords="product manipulation, photo composite, retouching, visual advertising, Shakeel Arafath"
+                url="https://shakeelarafath.in/project/product-manipulation"
+                breadcrumb={[
+                    { name: "Portfolio", url: "https://shakeelarafath.in/#works" },
+                    { name: "Product Manipulation", url: "https://shakeelarafath.in/project/product-manipulation" }
+                ]}
+            />
             <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
                 <button
                     onClick={() => navigate('/')}

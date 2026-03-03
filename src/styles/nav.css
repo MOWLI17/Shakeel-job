@@ -44,6 +44,9 @@
 
 .nav-links li a {
     transition: color 0.3s ease;
+    mix-blend-mode: difference;
+    color: #fff;
+    /* In difference mode, white on black is white, white on white is black */
 }
 
 .nav-links li a:hover {

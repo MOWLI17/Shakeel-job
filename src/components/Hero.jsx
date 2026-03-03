@@ -28,7 +28,7 @@ const Hero = () => {
                             <span className="desc-item">Specializing in ROI</span>
                             <span className="desc-sep">•</span>
                             <span className="desc-item">Brand Growth</span>
-                             <span className="desc-item"> AI Content Creater</span>
+                            <span className="desc-item"> AI Content Creator</span>
                             <span className="desc-sep">•</span>
                         </div>
                         <div className="hero-description">

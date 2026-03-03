@@ -18,8 +18,9 @@ import ProductManipulation from './components/Project/ProductManipulation';
 import SocialMedia from './components/Project/SocialMedia';
 import Graphics from './components/Project/Graphics';
 import Logo from './components/Project/Logo';
-import PrintDesign from './components/Project/PrintDesing';
+import PrintDesign from './components/Project/PrintDesign';
 import AiVideo from './components/Project/AiVideo';
+import SEO from './components/SEO';
 
 function App() {
     return (
@@ -29,6 +30,10 @@ function App() {
             <Routes>
                 <Route path="/" element={
                     <>
+                        <SEO
+                            description="Shakeel Arafath — Digital Marketer, Motion Graphic Designer & Content Creator based in Chennai. Specializing in Meta Ads, social media strategy, and high-impact visual content."
+                            keywords="Shakeel Arafath, digital marketer Chennai, motion graphic designer, Meta Ads specialist, social media marketing, performance marketing"
+                        />
                         <Nav />
                         <Hero />
                         <Marquee />

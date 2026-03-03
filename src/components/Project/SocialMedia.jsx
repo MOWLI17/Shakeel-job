@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
+import SEO from '../SEO'
 
 
 import p1 from '../../image/Posters/1.jpg'
@@ -36,6 +37,16 @@ const SocialMedia = () => {
 
   return (
     <section style={{ background: '#131313', minHeight: '100vh', padding: '120px 5%' }}>
+      <SEO
+        title="Social Media Poster Design"
+        description="Creative and eye-catching social media posters designed to engage your audience. Professional content creation by Shakeel Arafath."
+        keywords="social media design, Instagram posters, marketing content, graphic design, Shakeel Arafath"
+        url="https://shakeelarafath.in/project/social-media"
+        breadcrumb={[
+          { name: "Portfolio", url: "https://shakeelarafath.in/#works" },
+          { name: "Social Media", url: "https://shakeelarafath.in/project/social-media" }
+        ]}
+      />
       <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
         <button
           onClick={() => navigate('/')}

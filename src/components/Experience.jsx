@@ -53,7 +53,7 @@ const EducationCard = ({ degree, school, date, color }) => {
 const Experience = () => {
     return (
         <>
-            <section className="resume-sec" id="resume">
+            <section className="resume-sec" id="experience">
                 <div className="resume-container">
 
                     {/* Section Title */}
