@@ -44,7 +44,7 @@ const Hero = () => {
                     <p className="hero-tagline reveal">
                         Crafting <i>luxury marketing</i> strategies that resonate with high-intent audiences.
                     </p>
-                    <div className="hero-stats">
+                    {/* <div className="hero-stats">
                         <div className="stat-item reveal">
                             <span className="stat-num">80+</span>
                             <span className="stat-label">  Clients Helped</span>
@@ -53,7 +53,7 @@ const Hero = () => {
                             <span className="stat-num">300%</span>
                             <span className="stat-label">Avg. Growth</span>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </section>
